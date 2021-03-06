@@ -1,6 +1,6 @@
 import sales
 from sales import calc_shipping, calc_tax
-`  # method 1: import individual objects
+# method 1: import individual objects
 
 # method 2: import entire module as an object
 
