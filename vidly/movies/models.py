@@ -7,6 +7,10 @@ from django.utils import timezone
 class Genre(models.Model):
     name = models.CharField(max_length=255)
 
+    # define magic method on how to represent strings in the admin console
+    def __str__(self):
+        return (self.name)
+
 
 class Movie(models.Model):
     title = models.CharField(max_length=255)  # best practice: set a max:
