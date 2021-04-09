@@ -15,6 +15,7 @@ def index(request):
     # Get one Item in the table - Select * FROM movies_movie WHERE ...:
     # Movie.objects.get(id=1)
 
-    output = ', '.join([m.title for m in movies])
+    # output = ', '.join([m.title for m in movies])
+    # return HttpResponse(output)
 
-    return HttpResponse(output)
+    return render(request, 'movies/index.html', {'movies': movies})
