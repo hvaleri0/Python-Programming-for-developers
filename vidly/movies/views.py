@@ -1,5 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, Http404
+from django.shortcuts import render, get_object_or_404
 from .models import Movie
 
 # Create your views here.
@@ -22,5 +22,12 @@ def index(request):
 
 
 def details(request, movie_id):
-    movie = Movie.objects.get(pk=movie_id)
+    # try:
+    #     movie = Movie.objects.get(pk=movie_id)
+    #     return render(request, 'movies/detail.html', {'movie': movie})
+    # except Movie.DoesNotExist:
+    #     raise Http404()
+
+    # easier implentation with django shortcuts:
+    movie = get_object_or_404(Movie, pk=movie_id)
     return render(request, 'movies/detail.html', {'movie': movie})
