@@ -5,8 +5,11 @@ from . import views  # Required relative import statement
 # movies/1/details: Id #1 & details
 
 # URL Configuration:
+
+app_name = 'movies'
 urlpatterns = [
     # root Url, You are not calling just passing a reference.
-    path('', views.index, name='movies_index'),
-    path('<int:movie_id>', views.details, name='movies_detail')
+    # no need to namespace eg. name=''movies_index, now you have app_name defined:
+    path('', views.index, name='index'),
+    path('<int:movie_id>', views.details, name='detail')
 ]
