@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api.models import MovieResource
+
+movie_resource = MovieResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # no need to add .py django handles it
-    path('movies/', include('movies.urls'))
+    path('movies/', include('movies.urls')),
+    # add API Urls
+    # Note: movie_resource.url returns the attribute based on the resource_name set in the models.py file:
+    path('api/', include(movie_resource.urls))
 ]
