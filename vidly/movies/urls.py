@@ -7,5 +7,6 @@ from . import views  # Required relative import statement
 # URL Configuration:
 urlpatterns = [
     # root Url, You are not calling just passing a reference.
-    path('', views.index, name='index')
+    path('', views.index, name='movies_index'),
+    path('<int:movie_id>', views.details, name='movies_detail')
 ]
